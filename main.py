@@ -14,7 +14,7 @@ GRAPH_API_VERSION = os.getenv("GRAPH_API_VERSION", "v26.0")
 @app.get("/")
 def home():
     return {"status": "PGDEMS Admission Assistant is running"}
-    @app.get("/privacy-policy")
+@app.get("/privacy-policy")
 def privacy_policy():
     return PlainTextResponse(
         """
