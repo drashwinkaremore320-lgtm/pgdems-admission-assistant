@@ -14,6 +14,49 @@ GRAPH_API_VERSION = os.getenv("GRAPH_API_VERSION", "v26.0")
 @app.get("/")
 def home():
     return {"status": "PGDEMS Admission Assistant is running"}
+    @app.get("/privacy-policy")
+def privacy_policy():
+    return PlainTextResponse(
+        """
+        PRIVACY POLICY – PGDEMS ADMISSION ASSISTANT
+
+        This Privacy Policy explains how PGDEMS Admission Assistant handles information
+        provided by users through WhatsApp.
+
+        1. Information We May Collect
+        We may receive information such as your name, WhatsApp phone number, messages,
+        course preferences, eligibility information, and admission-related inquiries.
+
+        2. How We Use Information
+        Information is used only to respond to PGDEMS course inquiries, provide admission
+        information, assist with counselling, and follow up regarding admission enquiries.
+
+        3. Sharing of Information
+        We do not sell personal information. Information may be accessed by authorised
+        staff or service providers only when required to provide admission assistance
+        and related services.
+
+        4. Data Security
+        Reasonable technical and organisational measures are used to protect information
+        from unauthorised access, alteration, disclosure, or destruction.
+
+        5. Data Retention
+        Information is retained only for as long as reasonably necessary for admission
+        assistance, counselling, administrative, or legal purposes.
+
+        6. User Rights
+        Users may request correction or deletion of information provided through the
+        admission assistant, subject to applicable legal and administrative requirements.
+
+        7. Contact
+        For privacy-related questions or requests, please contact the PGDEMS Admission
+        Assistant administration.
+
+        8. Changes to this Policy
+        This Privacy Policy may be updated from time to time. The latest version will
+        be available at this URL.
+        """
+    )
 
 
 @app.get("/webhook")
