@@ -86,18 +86,76 @@ async def receive_message(request: Request):
 
         message = value["messages"][0]
         sender = message["from"]
+        message_text = message.get("text", {}).get("body", "").strip().lower()
 
-        reply_text = (
-            "👋 Welcome to PGDEMS Admission Assistant!\n\n"
-            "How can I help you?\n\n"
-            "1️⃣ PGDEMS Course Details\n"
-            "2️⃣ Eligibility\n"
-            "3️⃣ Fees & Admission\n"
-            "4️⃣ Course Duration\n"
-            "5️⃣ Talk to a Counsellor\n\n"
-            "Please reply with 1, 2, 3, 4 or 5."
-        )
+        if message_text in ["1", "course", "course details"]:
+            reply_text = (
+                "📚 PGDEMS Course Details\n\n"
+                "Post Graduate Diploma in Emergency Medical Services (PGDEMS) "
+                "is designed to provide structured learning in emergency medical care.\n\n"
+                "For complete course details, please choose an option from the main menu "
+                "or type MENU."
+            )
 
+        elif message_text in ["2", "eligibility"]:
+            reply_text = (
+                "🎓 Eligibility\n\n"
+                "Please share your qualification and professional background so that "
+                "we can guide you regarding eligibility for the appropriate PGDEMS pathway.\n\n"
+                "Type MENU to return to the main menu."
+            )
+
+        elif message_text in ["3", "fees", "admission"]:
+            reply_text = (
+                "💰 Fees & Admission\n\n"
+                "For current fees, admission procedure and available batches, "
+                "please connect with our admission counsellor.\n\n"
+                "Reply 6 to request a counsellor.\n\n"
+                "Type MENU to return to the main menu."
+            )
+
+        elif message_text in ["4", "duration"]:
+            reply_text = (
+                "⏱️ Course Duration\n\n"
+                "Please select the PGDEMS learning pathway you are interested in "
+                "for the applicable course duration and schedule.\n\n"
+                "Reply 5 for Learning Pathways.\n\n"
+                "Type MENU to return to the main menu."
+            )
+
+        elif message_text in ["5", "pathway", "pathways", "learning pathways"]:
+            reply_text = (
+                "📖 PGDEMS Learning Pathways\n\n"
+                "We currently have two PGDEMS learning pathways:\n\n"
+                "1️⃣ 6-month pathway through Central Council of Health & Research\n\n"
+                "2️⃣ PGDEMS pathway through Global Institute of Medical Education "
+                "& Research in association with its partner institution.\n\n"
+                "Reply with 1 or 2 to know more about the respective pathway.\n\n"
+                "Type MENU to return to the main menu."
+            )
+
+        elif message_text in ["6", "counsellor", "counselor", "talk to a counsellor"]:
+            reply_text = (
+                "👨‍💼 Counsellor Assistance\n\n"
+                "Sure! Our admission counsellor can assist you with the course, "
+                "eligibility, fees and admission process.\n\n"
+                "Please reply with your NAME and QUALIFICATION.\n\n"
+                "Example:\n"
+                "Rahul Sharma, MBBS"
+            )
+
+        else:
+            reply_text = (
+                "👋 Welcome to PGDEMS Admission Assistant!\n\n"
+                "How may I help you?\n\n"
+                "1️⃣ PGDEMS Course Details\n"
+                "2️⃣ Eligibility\n"
+                "3️⃣ Fees & Admission\n"
+                "4️⃣ Course Duration\n"
+                "5️⃣ Learning Pathways\n"
+                "6️⃣ Talk to a Counsellor\n\n"
+                "Please reply with 1, 2, 3, 4, 5 or 6."
+            )
         url = (
             f"https://graph.facebook.com/"
             f"{GRAPH_API_VERSION}/{PHONE_NUMBER_ID}/messages"
