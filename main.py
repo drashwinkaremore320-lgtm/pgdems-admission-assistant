@@ -124,8 +124,8 @@ async def receive_message(request: Request):
             )
 
         elif message_text in ["5", "pathway", "pathways", "learning pathways"]:
-        reply_text = (
-            "🎓 PGDEMS LEARNING PATHWAYS\n\n"
+            reply_text = (
+             "🎓 PGDEMS LEARNING PATHWAYS\n\n"
             "We currently offer two learning pathways:\n\n"
             "1️⃣ CCHR – 6-Month PGDCEMS\n"
             "Vocational / skill-development pathway through "
