@@ -4,6 +4,7 @@ import os
 import requests
 
 app = FastAPI()
+user_state = {}
 
 VERIFY_TOKEN = os.getenv("VERIFY_TOKEN", "pgdems_verify_123")
 ACCESS_TOKEN = os.getenv("WHATSAPP_ACCESS_TOKEN")
@@ -87,9 +88,19 @@ async def receive_message(request: Request):
         message = value["messages"][0]
         sender = message["from"]
         message_text = message.get("text", {}).get("body", "").strip().lower()
+    # Handle counsellor information submitted by the user
+    if user_state.get(sender) == "counsellor":
+        reply_text = (
+            "✅ Thank you for sharing your details.\n\n"
+            "Our admission counsellor will contact you shortly "
+            "regarding PGDEMS course details, eligibility, fees and admission.\n\n"
+            "📲 For direct assistance: 8830639520\n\n"
+            "Type MENU to return to the main menu."
+        )
+        user_state.pop(sender, None)
 
-        if message_text in ["1", "course", "course details"]:
-            reply_text = (
+    elif message_text in ["1", "course", "course details"]:
+        reply_text = (
                 "📚 PGDEMS Course Details\n\n"
                 "Post Graduate Diploma in Emergency Medical Services (PGDEMS) "
                 "is designed to provide structured learning in emergency medical care.\n\n"
@@ -228,15 +239,17 @@ async def receive_message(request: Request):
                 "For admission assistance, reply 6 to talk to a counsellor.\n"
                 "Type MENU to return to the main menu."
             )
-        elif message_text in ["6", "counsellor", "counselor", "talk to a counsellor"]:
-            reply_text = (
-                "👨‍💼 Counsellor Assistance\n\n"
-                "Sure! Our admission counsellor can assist you with the course, "
-                "eligibility, fees and admission process.\n\n"
-                "Please reply with your NAME and QUALIFICATION.\n\n"
-                "Example:\n"
-                "Rahul Sharma, MBBS"
-            )
+       elif message_text in ["6", "counsellor", "counselor", "talk to a counsellor"]:
+    user_state[sender] = "counsellor"
+    reply_text = (
+        "👨‍💼 Counsellor Assistance\n\n"
+        "Sure! Our admission counsellor can assist you with the course, "
+        "eligibility, fees and admission process.\n\n"
+        "Please reply with your NAME and QUALIFICATION.\n\n"
+        "Example:\n"
+        "Rahul Sharma, MBBS\n\n"
+        "📲 You may also call / WhatsApp: 8830639520"
+    )
 
         else:
             reply_text = (
