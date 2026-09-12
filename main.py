@@ -124,16 +124,20 @@ async def receive_message(request: Request):
             )
 
         elif message_text in ["5", "pathway", "pathways", "learning pathways"]:
-            reply_text = (
-                "📖 PGDEMS Learning Pathways\n\n"
-                "We currently have two PGDEMS learning pathways:\n\n"
-                "1️⃣ 6-month pathway through Central Council of Health & Research\n\n"
-                "2️⃣ PGDEMS pathway through Global Institute of Medical Education "
-                "& Research in association with its partner institution.\n\n"
-                "Reply with 1 or 2 to know more about the respective pathway.\n\n"
-                "Type MENU to return to the main menu."
-            )
-
+        reply_text = (
+            "🎓 PGDEMS LEARNING PATHWAYS\n\n"
+            "We currently offer two learning pathways:\n\n"
+            "1️⃣ CCHR – 6-Month PGDCEMS\n"
+            "Vocational / skill-development pathway through "
+            "Central Council of Health & Research.\n\n"
+            "2️⃣ GIMER + SWAMINARAYAN UNIVERSITY – 12-Month PGDEMS\n"
+            "PGDEMS pathway through Global Institute of Medical Education "
+            "& Research in association with Swaminarayan University.\n\n"
+            "Please reply:\n"
+            "P1 – For complete details of CCHR 6-Month PGDCEMS\n"
+            "P2 – For complete details of GIMER + Swaminarayan University PGDEMS\n\n"
+            "Type MENU to return to the main menu."
+        )
         elif message_text in ["6", "counsellor", "counselor", "talk to a counsellor"]:
             reply_text = (
                 "👨‍💼 Counsellor Assistance\n\n"
