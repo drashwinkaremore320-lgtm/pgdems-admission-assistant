@@ -125,23 +125,23 @@ async def receive_message(request: Request):
 
         elif message_text in ["5", "pathway", "pathways", "learning pathways"]:
             reply_text = (
-             "🎓 PGDEMS LEARNING PATHWAYS\n\n"
-            "We currently offer two learning pathways:\n\n"
-            "1️⃣ CCHR – 6-Month PGDCEMS\n"
-            "Vocational / skill-development pathway through "
-            "Central Council of Health & Research.\n\n"
-            "2️⃣ GIMER + SWAMINARAYAN UNIVERSITY – 12-Month PGDEMS\n"
-            "PGDEMS pathway through Global Institute of Medical Education "
-            "& Research in association with Swaminarayan University.\n\n"
-            "Please reply:\n"
-            "P1 – For complete details of CCHR 6-Month PGDCEMS\n"
-            "P2 – For complete details of GIMER + Swaminarayan University PGDEMS\n\n"
-            "Type MENU to return to the main menu."
-        )
+                "🎓 PGDEMS LEARNING PATHWAYS\n\n"
+                "We currently offer two learning pathways:\n\n"
+                "1️⃣ CCHR – 6-Month PGDCEMS\n"
+                "Vocational / skill-development pathway through "
+                "Central Council of Health & Research.\n\n"
+                "2️⃣ GIMER + SWAMINARAYAN UNIVERSITY – 12-Month PGDEMS\n"
+                "PGDEMS pathway through Global Institute of Medical Education "
+                "& Research in association with Swaminarayan University.\n\n"
+                "Please reply:\n"
+                "P1 – For complete details of CCHR 6-Month PGDCEMS\n"
+                "P2 – For complete details of GIMER + Swaminarayan University PGDEMS\n\n"
+                "Type MENU to return to the main menu."
+            )  
         elif message_text in ["p1", "1"]:
             reply_text = (
-            "🏥 CCHR – 6-MONTH PGDCEMS\n\n"
-            "Post Graduate Diploma Certificate in Emergency Medical Services\n\n"
+                "🏥 CCHR – 6-MONTH PGDCEMS\n\n"
+                "Post Graduate Diploma Certificate in Emergency Medical Services\n\n"
             "📚 PROGRAMME\n"
             "A 6-month vocational / skill-development pathway through "
             "Central Council of Health & Research.\n\n"
@@ -173,11 +173,11 @@ async def receive_message(request: Request):
             "not a university programme or a programme awarded by a statutory body.\n\n"
             "For admission assistance, reply 6 to talk to a counsellor.\n"
             "Type MENU to return to the main menu."
-        )   
-      elif message_text in ["p2"]:
-          reply_text = (
+            )   
+        elif message_text in ["p2"]:
+            reply_text = (
                "🎓 GIMER + SWAMINARAYAN UNIVERSITY – 12-MONTH PGDEMS\n\n"
-                "Global Institute of Medical Education & Research (GIMER) "
+               "Global Institute of Medical Education & Research (GIMER) "
                 "in association with Swaminarayan University.\n\n"
                 "⏳ PROGRAMME DURATION\n"
                 "• Overall programme cycle: 12 months\n"
