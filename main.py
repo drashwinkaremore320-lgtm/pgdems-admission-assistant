@@ -99,12 +99,19 @@ async def receive_message(request: Request):
 
         elif message_text in ["2", "eligibility"]:
             reply_text = (
-                "🎓 Eligibility\n\n"
-                "Please share your qualification and professional background so that "
-                "we can guide you regarding eligibility for the appropriate PGDEMS pathway.\n\n"
-                "Type MENU to return to the main menu."
+                 "🎓 PGDEMS ELIGIBILITY\n\n"
+                 "👨‍⚕️ ELIGIBLE CANDIDATES\n"
+                 "Medical interns and doctors with any of the following qualifications:\n\n"
+                 "• MBBS\n"
+                 "• BAMS\n"
+                 "• BHMS\n"
+                 "• BUMS\n\n"
+                 "✅ This eligibility applies to both learning pathways:\n\n"
+                 "1️⃣ CCHR – 6-Month PGDCEMS\n"
+                 "2️⃣ GIMER + Swaminarayan University – 12-Month PGDEMS\n\n"
+                 "📌 For admission guidance, reply 6 to talk to a counsellor.\n\n"
+                 "Type MENU to return to the main menu."
             )
-
         elif message_text in ["3", "fees", "admission"]:
             reply_text = (
                 "💰 Fees & Admission\n\n"
