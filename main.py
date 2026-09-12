@@ -100,13 +100,13 @@ async def receive_message(request: Request):
             user_state.pop(sender, None)
 
         elif message_text in ["1", "course", "course details"]:
-        reply_text = (
-                "📚 PGDEMS Course Details\n\n"
-                "Post Graduate Diploma in Emergency Medical Services (PGDEMS) "
-                "is designed to provide structured learning in emergency medical care.\n\n"
-                "For complete course details, please choose an option from the main menu "
-                "or type MENU."
-            )
+                    reply_text = (
+                        "📚 PGDEMS Course Details\n\n"
+                        "Post Graduate Diploma in Emergency Medical Services (PGDEMS) "
+                        "is designed to provide structured learning in emergency medical care.\n\n"
+                        "For complete course details, please choose an option from the main menu "
+                        "or type MENU."
+                    )
 
         elif message_text in ["2", "eligibility"]:
             reply_text = (
