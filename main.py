@@ -138,8 +138,8 @@ async def receive_message(request: Request):
             "P2 – For complete details of GIMER + Swaminarayan University PGDEMS\n\n"
             "Type MENU to return to the main menu."
         )
-    elif message_text in ["p1", "1"]:
-        reply_text = (
+        elif message_text in ["p1", "1"]:
+            reply_text = (
             "🏥 CCHR – 6-MONTH PGDCEMS\n\n"
             "Post Graduate Diploma Certificate in Emergency Medical Services\n\n"
             "📚 PROGRAMME\n"
