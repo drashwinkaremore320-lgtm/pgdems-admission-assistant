@@ -88,18 +88,18 @@ async def receive_message(request: Request):
         message = value["messages"][0]
         sender = message["from"]
         message_text = message.get("text", {}).get("body", "").strip().lower()
-    # Handle counsellor information submitted by the user
-    if user_state.get(sender) == "counsellor":
-        reply_text = (
-            "✅ Thank you for sharing your details.\n\n"
-            "Our admission counsellor will contact you shortly "
-            "regarding PGDEMS course details, eligibility, fees and admission.\n\n"
-            "📲 For direct assistance: 8830639520\n\n"
-            "Type MENU to return to the main menu."
-        )
-        user_state.pop(sender, None)
+        # Handle counsellor information submitted by the user
+        if user_state.get(sender) == "counsellor":
+            reply_text = (
+                "✅ Thank you for sharing your details.\n\n"
+                "Our admission counsellor will contact you shortly "
+                "regarding PGDEMS course details, eligibility, fees and admission.\n\n"
+                "📲 For direct assistance: 8830639520\n\n"
+                "Type MENU to return to the main menu."
+            )
+            user_state.pop(sender, None)
 
-    elif message_text in ["1", "course", "course details"]:
+        elif message_text in ["1", "course", "course details"]:
         reply_text = (
                 "📚 PGDEMS Course Details\n\n"
                 "Post Graduate Diploma in Emergency Medical Services (PGDEMS) "
